@@ -12,6 +12,12 @@ const m = {
   "-": "-....-"
 };
 
+const toy = document.getElementById("toy");
+const panel = document.getElementById("panel");
+const out = document.getElementById("out");
+const birth = document.getElementById("birth");
+const convert = document.getElementById("convert");
+
 toy.onclick = () => {
   panel.classList.remove("hidden");
   out.textContent += "> ENTER YOUR BIRTHDAY\n";
@@ -19,18 +25,25 @@ toy.onclick = () => {
 };
 
 function convertBirthday() {
-  const v = birth.value;
+  const v = birth.value.trim();
 
   if (!v) return;
 
   out.textContent +=
     "> PROCESSING...\n\nSECRET CODE\n" +
-    [...v].map(c => m[c]).join("   ") +
-    "\n> DONE";
+    [...v].map(c => m[c] || c).join("   ") +
+    "\n> DONE\n";
 
   panel.classList.add("hidden");
 }
 
-convert.onclick = () => {
-  convertBirthday();
-};
+// Computer: Enter key
+birth.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    convertBirthday();
+  }
+});
+
+// Computer & Mobile: Convert button
+convert.addEventListener("click", convertBirthday);
