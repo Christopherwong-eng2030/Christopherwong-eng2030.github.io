@@ -35,15 +35,7 @@ function convertBirthday() {
     "\n> DONE\n";
 
   panel.classList.add("hidden");
+  birth.value = "";
 }
 
-// Computer: Enter key
-birth.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    convertBirthday();
-  }
-});
-
-// Computer & Mobile: Convert button
-convert.addEventListener("click", convertBirthday);
+convert.onclick = convertBirthday;
