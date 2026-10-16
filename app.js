@@ -19,7 +19,7 @@ toy.onclick = () => {
 };
 
 function convertBirthday() {
-  let v = birth.value;
+  const v = birth.value;
 
   if (!v) return;
 
@@ -31,14 +31,14 @@ function convertBirthday() {
   panel.classList.add("hidden");
 }
 
-// Desktop: press Enter
-birth.onkeydown = e => {
+// Desktop: Enter key
+birth.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     convertBirthday();
   }
-};
+});
 
-// Mobile: selecting a date automatically converts it
-birth.onchange = () => {
+// Desktop & Mobile: Convert button
+convert.addEventListener("click", () => {
   convertBirthday();
-};
+});
