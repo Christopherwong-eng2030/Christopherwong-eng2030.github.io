@@ -14,15 +14,8 @@
     <input
     id="birth"
     type="text"
-    placeholder="YYYY-MM-DD">
-    birth.onkeydown = e => {
-        if (e.key === "Enter") {
-            convertBirthday();
-        }
-    };
+    placeholder="YYYY-MM-DD"
+    autocomplete="off">
 
-    convert.onclick = () => {
-        convertBirthday();
-    };
     <button id="convert">Convert</button>
 </div></div><script src="./app.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));}</script></body></html>
