@@ -11,6 +11,18 @@
 </head><body><div class="term"><h1>RETRO SECRET TERMINAL</h1><pre id="out">> SYSTEM READY
 > CLICK THE TOY
 </pre><button id="toy">🧸</button><div id="panel" class="hidden">
-    <input id="birth" type="date">
+    <input
+    id="birth"
+    type="text"
+    placeholder="YYYY-MM-DD">
+    birth.onkeydown = e => {
+        if (e.key === "Enter") {
+            convertBirthday();
+        }
+    };
+
+    convert.onclick = () => {
+        convertBirthday();
+    };
     <button id="convert">Convert</button>
 </div></div><script src="./app.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));}</script></body></html>
