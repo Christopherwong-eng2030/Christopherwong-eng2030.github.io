@@ -26,19 +26,11 @@ function convertBirthday() {
   out.textContent +=
     "> PROCESSING...\n\nSECRET CODE\n" +
     [...v].map(c => m[c]).join("   ") +
-    "\n> DONE\n";
+    "\n> DONE";
 
   panel.classList.add("hidden");
 }
 
-// Desktop: Enter key
-birth.addEventListener("keydown", e => {
-  if (e.key === "Enter") {
-    convertBirthday();
-  }
-});
-
-// Desktop & Mobile: Convert button
-convert.addEventListener("click", () => {
+convert.onclick = () => {
   convertBirthday();
-});
+};
